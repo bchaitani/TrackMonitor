@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.courier.trackmonitor"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+
+        debug {
+            buildConfigField "String", "BASE_URL", "\"http://fn-plt-pd-az-v2-rg01-asp-as-mobileapi.azurewebsites.net/api/mobileapi/\""
+        }
+
+        release {
+            buildConfigField "String", "BASE_URL", "\"http://fn-plt-pd-az-v2-rg01-asp-as-mobileapi.azurewebsites.net/api/mobileapi/\""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+}

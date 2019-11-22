@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/minutes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rounded_corners_green"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:text="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/minutes_text"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Digital Marketing" />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_secondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Digital Marketing" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_color_secondary" />
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+package com.courier.trackmonitor.utils.sectioned_adapter;
+
+/**
+ * Created by basselchaitani on 2019-11-22.
+ */
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.courier.trackmonitor.R;
+
+/**
+ * An extension of SectionedRecyclerViewAdapter for simple sectioned RecyclerViews. In most cases,
+ * you will not need a footer for your sections and your header will consist only of a TextView.
+ * SimpleSectionedAdapter simplifies the creation of such sectioned collections where you only
+ * need to provide header titles and implement the rendering of your items.
+ */
+public abstract class SimpleSectionedAdapter<VH extends RecyclerView.ViewHolder> extends SectionedRecyclerViewAdapter<HeaderViewHolder,
+        VH, RecyclerView.ViewHolder>{
+
+    @Override
+    protected boolean hasFooterInSection(int section) {
+        return false;
+    }
+
+    @Override
+    protected HeaderViewHolder onCreateSectionHeaderViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(getLayoutResource(), parent, false);
+        HeaderViewHolder holder = new HeaderViewHolder(view, getTitleTextID());
+
+        return holder;
+    }
+
+    @Override
+    protected RecyclerView.ViewHolder onCreateSectionFooterViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    protected void onBindSectionHeaderViewHolder(HeaderViewHolder holder, int section) {
+        String title = getSectionHeaderTitle(section);
+        holder.render(title);
+    }
+
+    @Override
+    protected void onBindSectionFooterViewHolder(RecyclerView.ViewHolder holder, int section) {}
+
+    /**
+     * Provides a layout identifier for the header. Override it to change the appearance of the
+     * header view.
+     */
+    protected @LayoutRes
+    int getLayoutResource(){
+        return R.layout.view_list_header;
+    }
+
+    /**
+     * Provides the identifier of the TextView to render the section header title. Override it if
+     * you provide a custom layout for a header.
+     */
+    protected @IdRes
+    int getTitleTextID(){
+        return R.id.title_text;
+    }
+
+    /**
+     * Returns the title for a given section
+     */
+    protected abstract String getSectionHeaderTitle(int section);
+}

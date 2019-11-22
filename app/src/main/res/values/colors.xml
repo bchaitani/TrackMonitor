@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0f368a</color>
+    <color name="colorPrimaryDark">#00095c</color>
+    <color name="colorAccent">#FFF</color>
+
+    <color name="app_title">#FFF</color>
+    <color name="background_main">#F7F7F7</color>
+
+    <color name="text_color_primary">#545454</color>
+    <color name="text_color_secondary">#a8a8a8</color>
+
+    <color name="red">#d63227</color>
+    <color name="green">#44963f</color>
+    <color name="white">#FFF</color>
+</resources>
